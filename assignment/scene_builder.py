@@ -78,32 +78,89 @@ building = cmds.polyCube(
 cmds.move(building_x, building_height / 2.0, building_z, building)
 
 # ---------------------------------------------------------------------------
-# TODO: Add Object 2
 # Create a second object using a DIFFERENT primitive type than the cube above.
 # Remember to:
 #   - Use descriptive variable names for size and position.
 #   - Name the object meaningfully with the 'name' parameter or cmds.rename().
 #   - Position it so it sits on the ground (not floating or buried).
 # ---------------------------------------------------------------------------
+tree_trunk_radius = 0.6
+tree_trunk_height = 4
+tree_trunk_x_position = 5
+tree_trunk_z_position = 6
+
+tree_trunk = cmds.polyCylinder(
+    name="tree_trunk_01",
+    radius=tree_trunk_radius,
+    height=tree_trunk_height,
+)[0]
+cmds.move(
+    tree_trunk_x_position,
+    tree_trunk_height / 2.0,
+    tree_trunk_z_position,
+    tree_trunk
+)
+
+# ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+tree_top_radius = 2
+tree_top_x_position = 5
+tree_top_z_position = 6
+tree_top_y_position = tree_trunk_height + tree_top_radius
+
+tree_top = cmds.polySphere(
+    name="tree_top_01",
+    radius=tree_top_radius,
+)[0]
+cmds.move(
+    tree_top_x_position,
+    tree_top_y_position,
+    tree_top_z_position,
+    tree_top
+)
 
 
 # ---------------------------------------------------------------------------
-# TODO: Add Object 3
 # ---------------------------------------------------------------------------
+roof_radius = 3
+roof_height = 3
+roof_x_position = building_x
+roof_z_position = building_z
+roof_y_position = building_height + (roof_height / 2.0)
+
+roof = cmds.polyCone(
+    name="roof_01",
+    radius=roof_radius,
+    height=roof_height,
+)[0]
+cmds.move(
+    roof_x_position,
+    roof_y_position,
+    roof_z_position,
+    roof
+)
 
 
 # ---------------------------------------------------------------------------
-# TODO: Add Object 4
 # ---------------------------------------------------------------------------
+water_tower_radius = 1.5
+water_tower_height = 5
+water_tower_x_position = 10
+water_tower_z_position = -4
 
+water_tower = cmds.polyCylinder(
+    name="water_tower_01",
+    radius=water_tower_radius,
+    height=water_tower_height,
+)[0]
+cmds.move(
+    water_tower_x_position,
+    water_tower_height / 2.0,
+    water_tower_z_position,
+    water_tower
+)
 
 # ---------------------------------------------------------------------------
-# TODO: Add Object 5
-# ---------------------------------------------------------------------------
-
-
-# ---------------------------------------------------------------------------
-# TODO (Optional): Add more objects to make your scene more interesting!
 # Consider: trees, lamp posts, fences, vehicles, animals, etc.
 # ---------------------------------------------------------------------------
 
